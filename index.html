@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon - Mahanama College</title>
+    <style>
+        /* Reset and basic styles */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background: radial-gradient(circle at center, #e5d201, #987d01);
+            overflow: hidden;
+            color: #f4c430; /* Gold color */
+        }
+
+        /* Loading Screen */
+        #loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+            animation: fadeOut 1s ease 3s forwards;
+            z-index: 10;
+        }
+
+        /* Logo and Text in Loading Screen */
+        .loading-logo {
+            font-size: 3rem;
+            color: #f4c430; /* Gold color for logo */
+            margin-bottom: 15px;
+            animation: bounce 2s ease-in-out infinite;
+        }
+        .loading-tagline {
+            font-size: 1.3rem;
+            color: #c0c0c0; /* Silver color */
+            font-style: italic;
+            animation: fadeIn 1s forwards 0.5s;
+        }
+        .loading-school-name {
+            font-size: 2rem;
+            color: #f4c430;
+            margin-top: 10px;
+            animation: fadeIn 1.5s ease forwards 1s;
+        }
+
+        #main-content {
+    display: none;
+    width: 90%;
+    max-width: 600px;
+    height: 70%;
+    backdrop-filter: blur(20px);
+    background-color: #987d01;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    text-align: center;
+    animation: fadeIn 1.5s ease-in-out forwards;
+
+    /* Centering */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+        /* Logo, Tagline, and Coming Soon Text in Main Content */
+        .logo {
+            font-size: 3rem;
+            color: #f4c430; /* Gold color */
+            margin-bottom: 20px;
+            animation: bounce 2s ease-in-out infinite;
+        }
+        .tagline {
+            font-size: 1.5rem;
+            color: #c0c0c0;
+            font-style: italic;
+            margin-bottom: 20px;
+            animation: fadeInUp 2s ease-in-out forwards 1s;
+            opacity: 0;
+        }
+        .coming-soon {
+            font-size: 2rem;
+            color: #f4c430;
+            margin-top: 20px;
+            animation: fadeInUp 2s ease-in-out forwards 1.5s;
+            opacity: 0;
+        }
+
+        /* Shine Effect */
+        .glass-shine {
+            position: absolute;
+            width: 120%;
+            height: 100%;
+            top: 0;
+            left: -10%;
+            background: linear-gradient(135deg, transparent 30%, rgba(215, 205, 11, 0.3), transparent 70%);
+            opacity: 0.2;
+            animation: shineMove 3s infinite;
+            border-radius: 20px;
+        }
+
+        /* Keyframes for animations */
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        @keyframes fadeOut {
+            to { opacity: 0; visibility: hidden; }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes shineMove {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading screen with logo, name, and tagline -->
+    <div id="loading-screen">
+        <div class="loading-logo"><img src="./logo/mahanama.png" alt="Logo" style="width: 100px;"></div>
+        <div class="loading-tagline"><mahanamacollege class="lk"></mahanamacollege></div>
+    </div>
+
+    <!-- Main content with glass effect -->
+    <div id="main-content">
+        <div class="glass-shine"></div>
+        <div class="loading-logo"><img src="./logo/mahanama.png" alt="Logo" style="width: 100px;"></div>
+        <div class="coming-soon">Coming Soon...</div>
+    </div>
+
+    <script>
+        // JavaScript to manage transition from loading to main content
+        window.addEventListener("load", function() {
+            const loadingScreen = document.getElementById("loading-screen");
+            const mainContent = document.getElementById("main-content");
+
+            // Hide loading screen and show main content after 3 seconds
+            setTimeout(() => {
+                loadingScreen.style.display = "none";
+                mainContent.style.display = "flex";
+            }, 3000);
+        });
+    </script>
+</body>
+</html>
